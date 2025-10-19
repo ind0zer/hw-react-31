@@ -31,7 +31,7 @@ const ContactForm = () => {
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Имя контакта..."
+          placeholder="Ім'я контакту..."
           className="contact-input"
           required
         />
@@ -51,12 +51,12 @@ const ContactForm = () => {
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email (необязательно)..."
+          placeholder="Email (необов'язково)..."
           className="contact-input"
         />
       </div>
       <button type="submit" className="contact-button">
-        Добавить контакт
+        Додати контакт
       </button>
     </form>
   );

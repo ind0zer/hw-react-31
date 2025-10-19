@@ -19,7 +19,7 @@ const ContactItem = ({ contact }) => {
         {contact.email && <div className="contact-email">{contact.email}</div>}
       </div>
       <button onClick={handleDelete} className="delete-button">
-        Удалить
+        Видалити
       </button>
     </li>
   );

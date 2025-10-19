@@ -16,7 +16,7 @@ const ContactList = () => {
   if (contacts.length === 0) {
     return (
       <div className="empty-state">
-        <p>Контактов пока нет. Добавьте первый контакт!</p>
+        <p>Контактів поки немає. Додайте перший контакт!</p>
       </div>
     );
   }
@@ -24,7 +24,7 @@ const ContactList = () => {
   if (filteredContacts.length === 0 && filter) {
     return (
       <div className="empty-state">
-        <p>Контакты не найдены по вашему запросу.</p>
+        <p>Контакти не знайдені за вашим запитом.</p>
       </div>
     );
   }

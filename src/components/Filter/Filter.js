@@ -18,7 +18,7 @@ const Filter = () => {
         type="text"
         value={filter}
         onChange={handleFilterChange}
-        placeholder="Поиск контактов..."
+        placeholder="Пошук контактів..."
         className="filter-input"
       />
     </div>
