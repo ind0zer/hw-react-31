@@ -5,13 +5,11 @@ const initialState = {
   filter: '',
 };
 
-// Actions
 export const addContact = createAction('contacts/addContact');
 export const editContact = createAction('contacts/editContact');
 export const deleteContact = createAction('contacts/deleteContact');
 export const setFilter = createAction('contacts/setFilter');
 
-// Reducer
 const contactsReducer = createReducer(initialState, (builder) => {
   builder
     .addCase(addContact, (state, action) => {
