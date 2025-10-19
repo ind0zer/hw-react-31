@@ -1,30 +1,33 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  todos: [],
+  contacts: [],
   filter: '',
 };
 
-const todosSlice = createSlice({
-  name: 'todos',
+const contactsSlice = createSlice({
+  name: 'contacts',
   initialState,
   reducers: {
-    addTodo: (state, action) => {
-      const newTodo = {
+    addContact: (state, action) => {
+      const newContact = {
         id: Date.now().toString(),
-        text: action.payload,
-        completed: false,
+        name: action.payload.name,
+        phone: action.payload.phone,
+        email: action.payload.email,
       };
-      state.todos.push(newTodo);
+      state.contacts.push(newContact);
     },
-    toggleTodo: (state, action) => {
-      const todo = state.todos.find(todo => todo.id === action.payload);
-      if (todo) {
-        todo.completed = !todo.completed;
+    editContact: (state, action) => {
+      const contact = state.contacts.find(contact => contact.id === action.payload.id);
+      if (contact) {
+        contact.name = action.payload.name;
+        contact.phone = action.payload.phone;
+        contact.email = action.payload.email;
       }
     },
-    deleteTodo: (state, action) => {
-      state.todos = state.todos.filter(todo => todo.id !== action.payload);
+    deleteContact: (state, action) => {
+      state.contacts = state.contacts.filter(contact => contact.id !== action.payload);
     },
     setFilter: (state, action) => {
       state.filter = action.payload;
@@ -32,5 +35,5 @@ const todosSlice = createSlice({
   },
 });
 
-export const { addTodo, toggleTodo, deleteTodo, setFilter } = todosSlice.actions;
-export default todosSlice.reducer;
+export const { addContact, editContact, deleteContact, setFilter } = contactsSlice.actions;
+export default contactsSlice.reducer;

@@ -1,42 +1,37 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { toggleTodo, deleteTodo } from '../../store/todosSlice';
+import { deleteContact } from '../../store/contactsSlice';
 import PropTypes from 'prop-types';
 import './TodoItem.css';
 
-const TodoItem = ({ todo }) => {
+const ContactItem = ({ contact }) => {
   const dispatch = useDispatch();
 
-  const handleToggle = () => {
-    dispatch(toggleTodo(todo.id));
-  };
-
   const handleDelete = () => {
-    dispatch(deleteTodo(todo.id));
+    dispatch(deleteContact(contact.id));
   };
 
   return (
-    <li className={`todo-item ${todo.completed ? 'completed' : ''}`}>
-      <input
-        type="checkbox"
-        checked={todo.completed}
-        onChange={handleToggle}
-        className="todo-checkbox"
-      />
-      <span className="todo-text">{todo.text}</span>
+    <li className="contact-item">
+      <div className="contact-info">
+        <div className="contact-name">{contact.name}</div>
+        <div className="contact-phone">{contact.phone}</div>
+        {contact.email && <div className="contact-email">{contact.email}</div>}
+      </div>
       <button onClick={handleDelete} className="delete-button">
-        Delete
+        Удалить
       </button>
     </li>
   );
 };
 
-TodoItem.propTypes = {
-  todo: PropTypes.shape({
+ContactItem.propTypes = {
+  contact: PropTypes.shape({
     id: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-    completed: PropTypes.bool.isRequired,
+    name: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+    email: PropTypes.string,
   }).isRequired,
 };
 
-export default TodoItem;
+export default ContactItem;

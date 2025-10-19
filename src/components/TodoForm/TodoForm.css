@@ -1,6 +1,7 @@
-.todo-form {
+.contact-form {
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  gap: 15px;
   margin-bottom: 20px;
   padding: 20px;
   background: #f8f9fa;
@@ -8,8 +9,13 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.todo-input {
-  flex: 1;
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.contact-input {
   padding: 12px 16px;
   border: 2px solid #e9ecef;
   border-radius: 6px;
@@ -18,11 +24,11 @@
   transition: border-color 0.3s ease;
 }
 
-.todo-input:focus {
+.contact-input:focus {
   border-color: #007bff;
 }
 
-.todo-button {
+.contact-button {
   padding: 12px 24px;
   background: #007bff;
   color: white;
@@ -32,12 +38,13 @@
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  align-self: flex-start;
 }
 
-.todo-button:hover {
+.contact-button:hover {
   background: #0056b3;
 }
 
-.todo-button:active {
+.contact-button:active {
   transform: translateY(1px);
 }
