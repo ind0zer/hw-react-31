@@ -1,43 +1,41 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import ContactItem from '../TodoItem/TodoItem';
+import TodoItem from '../TodoItem/TodoItem';
 import PropTypes from 'prop-types';
 import './TodoList.css';
 
-const ContactList = () => {
-  const { contacts, filter } = useSelector((state) => state.contacts);
+const TodoList = () => {
+  const { todos, filter } = useSelector((state) => state.todos);
 
-  const filteredContacts = contacts.filter((contact) =>
-    contact.name.toLowerCase().includes(filter.toLowerCase()) ||
-    contact.phone.includes(filter) ||
-    (contact.email && contact.email.toLowerCase().includes(filter.toLowerCase()))
+  const filteredTodos = todos.filter((todo) =>
+    todo.text.toLowerCase().includes(filter.toLowerCase())
   );
 
-  if (contacts.length === 0) {
+  if (todos.length === 0) {
     return (
       <div className="empty-state">
-        <p>Контактів поки немає. Додайте перший контакт!</p>
+        <p>Справ поки немає. Додайте першу справу!</p>
       </div>
     );
   }
 
-  if (filteredContacts.length === 0 && filter) {
+  if (filteredTodos.length === 0 && filter) {
     return (
       <div className="empty-state">
-        <p>Контакти не знайдені за вашим запитом.</p>
+        <p>Справи не знайдені за вашим запитом.</p>
       </div>
     );
   }
 
   return (
-    <ul className="contact-list">
-      {filteredContacts.map((contact) => (
-        <ContactItem key={contact.id} contact={contact} />
+    <ul className="todo-list">
+      {filteredTodos.map((todo) => (
+        <TodoItem key={todo.id} todo={todo} />
       ))}
     </ul>
   );
 };
 
-ContactList.propTypes = {};
+TodoList.propTypes = {};
 
-export default ContactList;
+export default TodoList;
