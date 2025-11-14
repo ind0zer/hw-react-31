@@ -1,12 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilter } from '../../store/todosSlice';
+import { setFilter } from '../../store/contactsSlice';
 import PropTypes from 'prop-types';
 import './Filter.css';
 
 const Filter = () => {
   const dispatch = useDispatch();
-  const filter = useSelector((state) => state.todos.filter);
+  const filter = useSelector((state) => state.contacts.filter);
 
   const handleFilterChange = (e) => {
     dispatch(setFilter(e.target.value));
@@ -18,7 +18,7 @@ const Filter = () => {
         type="text"
         value={filter}
         onChange={handleFilterChange}
-        placeholder="Пошук справ..."
+        placeholder="Пошук контактів..."
         className="filter-input"
       />
     </div>
